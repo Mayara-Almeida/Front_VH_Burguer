@@ -1,0 +1,51 @@
+#header{
+    height: 10vh;
+    background-color: var(--fundo-claro);
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo{
+    width: 250px;
+}
+
+#nav_menu{
+    display: flex;
+    gap: 25px;
+}
+
+#nav_menu a{
+    text-decoration: none;
+    color: var(--vinho);
+    font-weight: 500;
+    font-size: 17px;
+}
+
+#nav_menu a:hover{
+    color: var(--laranja-destaque)
+}
+
+#btn_icon{
+    display: none;
+    border: none;
+}
+
+@media (max-width: 768px){
+    #btn_icon{
+        display: block;
+    }
+
+    #nav_menu{
+        display: none;
+    }
+
+    #logo{
+    width: 200px;
+}
+}

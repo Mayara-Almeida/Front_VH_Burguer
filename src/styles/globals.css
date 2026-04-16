@@ -1,0 +1,22 @@
+*{ /* Pegar todos os elementos de todas as páginas */ 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; /* O padding e a border são  incluídos dentro da largura e altura definidas */
+
+    font-family: var(--font-padrao);
+}
+
+:root{
+    --fundo-claro: #f1f1f1;
+    --fundo-escuro: #232122;
+    --laranja-destaque: #FFA300;
+    --vinho: #451201;
+    --fonte-escura: #000;
+
+    --tamanho-titulo: 50px;
+    --tamanho-texto-btn: 17px;
+}
+
+.layout_guide{
+    width: 80%;
+}

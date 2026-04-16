@@ -1,0 +1,18 @@
+// _app.tsx -> Tudo que quer que tenha em todas a telas
+import "@/styles/globals.css";
+import type { AppProps } from "next/app";
+import { Fredoka } from "next/font/google";
+
+const fredoka = Fredoka({
+  variable: "--font-padrao",
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+});
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+  <main className={fredoka.variable}>
+    <Component {...pageProps} />
+  </main>
+  )
+}

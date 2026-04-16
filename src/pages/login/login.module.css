@@ -1,0 +1,88 @@
+#main{
+    min-height: 100vh;
+    display: grid; /*grid -> Diz que está trabalhando com colunas*/
+    grid-template-columns: 1fr 1fr; /*Definir tamanho das colunas*/
+    background-color: var(--fundo-claro);
+}
+
+#main img{
+    max-height: 100vh;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover; /*Redimensionar a imagem para preencher totalmente o contêiner definido, mantendo a proporção original*/
+}
+
+#campo_login
+{
+    display: flex; /*flex -> Diz que está trabalhando com linhas*/
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+#campo_login h1{
+    width: 100%;
+    max-width: 520px;
+    text-align: center;
+    font-weight: 500;
+    color: var(--laranja-destaque);
+    font-size: var(--tamanho-titulo);
+}
+
+#formulario{
+    width: 65%
+}
+
+.campo_form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /*Entre os filhos(label e input)*/
+    margin-bottom: 22px;
+}
+
+.campo_form label{
+    font-weight: 500; /*weight -> peso da fonte*/
+    color: var(--fonte-escura);
+}
+
+.campo_form input{
+    height: 45px;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 10px;
+    padding: 0 18px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.14); /*Sombreamento*/
+    outline: none;
+    font-size: 16px;
+}
+
+#esqueceu_senha{
+    display: block;
+    text-align: right;
+    margin: 6px 0 26px;
+    text-decoration: none; /* Tira o sublinhado */
+    color: var(--vinho);
+    font-weight: 500;
+}
+
+#formulario button{
+    width: 100%;
+    height: 52px;
+    border: none;
+    border-radius: 10px;
+    background: var(--laranja-destaque);
+    color: var(--vinho);
+    font-weight: 700;
+    cursor: pointer;
+    font-size: var(--tamanho-texto-btn);
+}
+
+/* Responsividade */
+@media (max-width: 1000px) {
+    #main{
+    grid-template-columns: 1fr;
+    }
+    #main img {
+        display: none;
+    } 
+}
