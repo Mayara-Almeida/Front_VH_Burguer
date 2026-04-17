@@ -4,9 +4,8 @@ const Header = () => {
     return (
         <>
             <header id={styles.header}>
-                {/* <div className={`${styles.container}layout_guide`}> */}
                 <div className={`${styles.container} layout_guide`}>
-                    <img src="../imgs/Logo_VH_Burguer.svg" alt="Logo do VhBurguer que ontém como plano de fundo um hambúrguer." id={styles.logo}/>
+                    <img src="../imgs/Logo_VH_Burguer.svg" alt="Logo do VhBurguer que contém como plano de fundo um hambúrguer." id={styles.logo}/>
 
                     <nav id={styles.nav_menu}>
                         <a href="">Destaques</a>

@@ -1,0 +1,56 @@
+#main{
+    min-height: 100vh;
+    display: grid;
+    background-color: var(--fundo-claro);
+}
+
+#banner{
+    height: 80vh;
+    display: grid;
+    place-items: center;
+}
+
+.container_banner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_banner h1{
+    color: var(--laranja-destaque);
+    font-weight: 500;
+    font-size: 6em;
+}
+
+.container_banner img{
+    width: 60%;
+}
+
+#botoes{
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+#btn_atendente{
+    width: 45%;
+    height: 6vh;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--laranja-destaque);
+    color: var(--vinho);
+    font-size: 1.7rem;
+    font-weight: 500;
+}
+
+#btn_cardapio{
+    width: 45%;
+    height: 6vh;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--vinho);
+    color: var(--laranja-destaque);
+    font-size: 1.7rem;
+    font-weight: 500;
+}
