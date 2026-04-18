@@ -1,6 +1,6 @@
 #main{
     min-height: 100vh;
-    display: grid; /*grid -> Diz que está trabalhando com colunas*/
+    display: grid; /*grid ->Organiza elementos em linhas e colunas ao mesmo tempo, sendo ideal para layouts de páginas inteiras */
     grid-template-columns: 1fr 1fr; /*Definir tamanho das colunas*/
     background-color: var(--fundo-claro);
 }
@@ -14,10 +14,10 @@
 
 #campo_login
 {
-    display: flex; /*flex -> Diz que está trabalhando com linhas*/
+    display: flex; /*flex -> Organiza elementos em uma única direção, horizontal ou vertical, sendo ideal para menus... */
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Alinha na horizontal*/
+    align-items: center; /* Alinha na vertical */
     gap: 30px;
 }
 

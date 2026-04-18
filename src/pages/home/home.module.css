@@ -1,56 +1,206 @@
-#main{
-    min-height: 100vh;
-    display: grid;
-    background-color: var(--fundo-claro);
-}
-
+/* -----------------------------SEÇÃO BANNER--------------------------------- */
 #banner{
-    height: 80vh;
-    display: grid;
-    place-items: center;
+    padding-top: 10vh;
+    min-height: 90vh;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--fundo-claro);
 }
 
 .container_banner{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    gap: 30px;
+    height: 100%;
+    padding: 75px 0;
 }
 
 .container_banner h1{
     color: var(--laranja-destaque);
     font-weight: 500;
-    font-size: 6em;
+    font-size: 5rem;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 .container_banner img{
     width: 60%;
+    min-width: 400px;
 }
 
 #botoes{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Elementos quebram para a linha debaixo quando não possuem mais espaço*/
     width: 60%;
 }
 
-#btn_atendente{
+.btn_atendimento, 
+.btn_cardapio{
     width: 45%;
-    height: 6vh;
+    height: 8vh;
     border: none;
     border-radius: 10px;
-    background-color: var(--laranja-destaque);
-    color: var(--vinho);
     font-size: 1.7rem;
     font-weight: 500;
 }
 
-#btn_cardapio{
-    width: 45%;
-    height: 6vh;
-    border: none;
-    border-radius: 10px;
+.btn_atendimento{
+    background-color: var(--laranja-destaque);
+    color: var(--vinho);
+}
+
+.btn_cardapio{
     background-color: var(--vinho);
     color: var(--laranja-destaque);
-    font-size: 1.7rem;
+}
+
+/* -----------------------------SEÇÃO DESTAQUES--------------------------------- */
+#destaques{
+    height: 90vh;
+    background-color: var(--fundo-escuro);
+    display: flex;
+    justify-content: center;
+}
+
+.container_destaques{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 3%;
+    
+}
+
+.card_mais_pedidos{
+    background-image: url(../../../public/imgs/mais_pedidos.png);
+    height: 80%;
+    width: 40%;
+    background-size: cover;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 2%;
+    color: var(--fundo-claro);
+    font-size: 1.5rem;
+}
+
+.nome_card{
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    font-weight: 450;
+}
+
+#cards_direita{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-size: cover;
+    height: 80%;
+    width: 40%;
+    gap: 4%;
+    color: var(--fundo-claro);
+    font-size: 1.5rem;
+}
+
+#cards_direita p{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    
+}
+
+.card_muito_bacon{
+    background-image: url(../../../public/imgs/muito_bacon.png);
+    height: 48%;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: 100%;
+    border-radius: 20px;
+    padding: 2%;
+}
+
+.card_super_combos{
+    background-image: url(../../../public/imgs/super_combos.png);
+    height: 48%;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: 100%;
+    border-radius: 20px;
+    padding: 2%;
+}
+
+/* -----------------------------SEÇÃO CARDÁPIO--------------------------------- */
+#cardapio{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: var(--fundo-claro);
+}
+
+.container_cardapio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3%;
+    padding: 5% 0;
+}
+
+.container_cardapio h1{
+    color: var(--laranja-destaque);
     font-weight: 500;
+    font-size: 5rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* -----------------------------SEÇÃO UNIDADES--------------------------------- */
+#unidades{
+    background: linear-gradient(#00000080, #00000080),url("../../../public/imgs/unidade.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover; /* Imagem preencher completamente o elemento*/
+    background-position: center; /* Centraliza a imagem verticalmente e horizontalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 70vh;
+}
+
+.container_unidades{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.texto_unidades{
+    align-content: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    height: 100%;
+    display: flex;
+}
+
+.texto_unidades h2{
+    font-size: var(--tamanho-titulo);
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.lista_unidades{
+    font-size: var(--fonte-texto);
+    line-height: 2.5; /* Espaçamento entre linhas do texto */
+    list-style: none;  /* Remoce marcador padrão da lista(bolinhas) */
 }
