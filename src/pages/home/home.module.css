@@ -42,10 +42,10 @@
 .btn_atendimento, 
 .btn_cardapio{
     width: 45%;
-    height: 8vh;
+    height: 6vh;
     border: none;
     border-radius: 10px;
-    font-size: 1.7rem;
+    font-size: var(--tamanho-texto-btn);
     font-weight: 500;
 }
 
@@ -155,10 +155,10 @@
     padding: 5% 0;
 }
 
-.container_cardapio h1{
+.container_cardapio h2{
     color: var(--laranja-destaque);
     font-weight: 500;
-    font-size: 5rem;
+    font-size: 4.8rem;
     text-transform: uppercase;
     text-align: center;
 }

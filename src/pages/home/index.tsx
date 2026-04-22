@@ -44,7 +44,7 @@ const Home = () => {
                 { /* -----------------------------SEÇÃO CARDÁPIO--------------------------------- */}
                 <section id={styles.cardapio}>
                     <div className={`${styles.container_cardapio} layout_guide`}>
-                        <h1>cardápio</h1>
+                        <h2>cardápio</h2>
                         {/* chamar componente da lista */}
                         <Lista_Produto />
                     </div>
