@@ -1,3 +1,6 @@
+#main{
+    background-color: var(--fundo-claro);
+}
 /* -----------------------------SEÇÃO BANNER--------------------------------- */
 #banner{
     padding-top: 10vh;
@@ -60,7 +63,7 @@
 }
 
 /* -----------------------------SEÇÃO DESTAQUES--------------------------------- */
-#destaques{
+.destaques{
     height: 90vh;
     background-color: var(--fundo-escuro);
     display: flex;
@@ -140,7 +143,7 @@
 }
 
 /* -----------------------------SEÇÃO CARDÁPIO--------------------------------- */
-#cardapio{
+.cardapio{
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -164,7 +167,8 @@
 }
 
 /* -----------------------------SEÇÃO UNIDADES--------------------------------- */
-#unidades{
+.unidades{
+    margin-top: 3%;
     background: linear-gradient(#00000080, #00000080),url("../../../public/imgs/unidade.jpeg");
     background-repeat: no-repeat;
     background-size: cover; /* Imagem preencher completamente o elemento*/
