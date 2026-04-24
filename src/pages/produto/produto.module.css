@@ -1,0 +1,25 @@
+.main_produto {
+    background: var(--fundo-claro);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_produto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50%;
+}
+
+#formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.campo_form{
+    display: flex;
+    flex-direction: column;
+}

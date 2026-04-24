@@ -6,7 +6,7 @@ const DetalheProduto = () => {
     return (
         <>
             <SubHeader />
-              <main className={styles.main_detalhes}>
+            <main className={styles.main_detalhes}>
                 <section className={`${styles.detalhes} layout_guide`}>
                     <article className={styles.card_detalhes} aria-label="Card de detalhes do produto">
                         <h1 id="titulo-detalhes-produto" className={styles.detalhes_titulo}>Detalhes do X-Bacon</h1>
@@ -24,8 +24,7 @@ const DetalheProduto = () => {
                                 <div className={styles.campo}>
                                     <h2 className={styles.campo_titulo}>Descrição</h2>
                                     <p className={styles.campo_valor}>
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum placeat qui molestiae. Minus dolores expedita, quo veritatis nihil necessitatibus, numquam amet tenetur at quia labore exercitationem, ipsam explicabo neque similique.
-                                    </p>
+                                        Um pão brioche macio segura a fera: duas (ou três) carnes altas e suculentas, queijo cheddar derretido escorrendo pelas laterais, bacon crocante, cebola caramelizada no ponto adocicado, alface fresca, tomate e um molho especial intenso que amarra tudo. Para completar o ataque, uma camada extra de onion rings ou molho defumado que transforma cada mordida numa explosão.                                    </p>
                                 </div>
                             </div>
 
@@ -34,16 +33,15 @@ const DetalheProduto = () => {
                                     <h2 className={styles.campo_titulo}>Preço (R$)</h2>
                                     <p className={styles.campo_valor}>
                                         <span className={styles.preco_atual}>R$20,00</span>
-                                        <span className={styles.preco_anterior}>R$20,00</span>
+                                        <span className={styles.preco_anterior}>R$25,00</span>
                                     </p>
                                 </div>
 
                                 <div className={styles.campo}>
                                     <h2 className={styles.campo_titulo}>Categoria</h2>
                                     <ul className={styles.campo_lista}>
-                                        <li>categoria 1</li>
-                                        <li>categoria 2</li>
-                                        <li>categoria 3</li>
+                                        <li>Premium</li>
+                                        <li>Artesanal</li>
                                     </ul>
                                 </div>
                             </div>
