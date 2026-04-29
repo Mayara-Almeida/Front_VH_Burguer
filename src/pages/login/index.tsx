@@ -13,20 +13,20 @@ const Login = () => { // Constante com o nome da página chamada
     const [senha, setSenha] = useState<string>("");
 
     const router = useRouter();
-    const notificacao = (msg: string) => toast(msg);
+    const notificacao = (msg: string) => toast.success(msg);
     const erro = (msg: string) => toast.error(msg);
 
     async function autenticar(e: React.FormEvent<HTMLFormElement>) {
         // impede a página de recarregar enquanto usuário está digitando
         e.preventDefault();
-        try{
+        try {
             await login(email, senha);
             notificacao("Login bem sucedido!");
             setTimeout(() => {
                 router.push("/home")
-            }, 2000); // depois de 2 segundos
-        }catch(error: any){
-erro(error.message);
+            }, 2000); // Espera 2 segundos para redirecionar para a login
+        } catch (error: any) {
+            erro(error.message);
         }
 
     }
@@ -35,7 +35,7 @@ erro(error.message);
 
     return ( // Aplicar tags necessárias para criar a tag Login, todas com um "pai" que é a tag <> e </>
         <>
-                <ToastContainer/>
+            <ToastContainer />
             <main id={styles.main}>
                 <img src="../imgs/hamburguer_login.png" alt="Hambúrguer “desmontado” com ingredientes flutuando (pão, carne, queijo, bacon, picles, tomate, cebola e alface) sobre fundo vermelho escuro." />
                 <div id={styles.campo_login}>

@@ -7,7 +7,7 @@ import secureLocalStorage from "react-secure-storage";
 export async function login(email: string, senha: string){
     // quando o botao de login for pressionado
     try{
-        // requisição:
+        // requisição (response):
         // aqui vai o caminho da api (igual no swagger) excluindo apenas o "/api"
         const response = await api.post("Autenticacao/Login", {email, senha});
 

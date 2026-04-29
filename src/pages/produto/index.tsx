@@ -1,54 +1,108 @@
-import SubHeader from "@/components/sub-header/sub-header";
-import Footer from "@/components/footer/footer"
+import Footer from "@/components/footer/footer";
+import SubHeader from "@/components/sub-header/sub-header"
 import styles from "./produto.module.css"
+import { useEffect, useState } from "react";
+import { cadastrarCategoria, listarCategoria } from "../api/categoriaService";
+import { cadastrarProduto } from "../api/produtoService";
+
+interface Categoria{ // O nome de cada atributo tem que estar igual na api
+  categoriaID: number,
+  nome: string
+}
 
 const Produto = () => {
-    return (
-        <>
-            <SubHeader />
-            <main className={styles.main_produto}>
-                <section className={`${styles.container_produto} layout_guide`}>
-                    <div className={styles.titulo}>
-                        <h1>Criar Produto</h1>
-                    </div>
-                    <form id={styles.formulario}>
-                        <div className={styles.campo_form}>
-                            <label htmlFor="nome">Nome do produto</label>
-                            <input type="text" name="nome" placeholder="BBQ Especial" required />
-                        </div>
+  
+  // Informações que o usuário passou pelo front e que precisamos passar para a api
+  const[nome, setNome] = useState<string>("");
+  const[descricao, setDescricao] = useState<string>("");
+  const[preco, setPreco] = useState<string>("");
+  const[imagem, setImagem] = useState<File | null>(null);
+  const[categoriasSelecionadas, setCategoriasSelecionadas] = useState<number[]>([]);
 
-                        <div className={styles.campo_form}>
-                            <label htmlFor="descricao">Descrição</label>
-                            <input type="text" name="descricao" placeholder="Hamburguer com molho barbecue defumado com cebola caramelizada." required />
-                        </div>
+  /* Listar as categorias vindo da api */
+  const[categorias, setCategorias] = useState<Categoria[]>([]);
 
-                        <div className={styles.campo_form}>
-                            <label htmlFor="preco">Preço (R$)</label>
-                            <input type="number" name="preco" placeholder="40,00" step="0.01" required />
-                        </div>
+  async function listarCategoriaEmProduto(){
+    const lista = await listarCategoria();
 
-                        <div className={styles.campo_form}>
-                            <label htmlFor="categoria">Categoria</label>
-                            <input list="lista" name="categoria" placeholder="Selecione a categoria" defaultChecked />
-                            <datalist id="lista">
-                                <option value="Artesanal">Artesanal</option>
-                                <option value="Vegano">Vegano</option>
-                                <option value="Vegetariano">Vegetariano</option>
-                            </datalist>
-                        </div>
-                        <a href="">Adicionar categoria</a>
+    setCategorias(lista.data);
+    console.log(lista.data);
+  }
 
-                        <div className={styles.campo_form}>
-                            <label htmlFor="imagem">URL da imagem</label>
-                            <input type="url" name="imagem" placeholder="https://unsplash.com/pt-br/fotografias/cheseburger-de-" required />
-                        </div>
+  async function Cadastrar(e: React.FormEvent<HTMLFormElement>){
+    e.preventDefault();
+    try{
+        const dados = {
+          nome,
+          descricao,
+          preco,
+          imagem,
+          categoriasId: categoriasSelecionadas
+        }
+        cadastrarProduto(dados);
 
-                        <button className={styles.botao}>Salvar</button>
-                    </form>
-                </section>
-            </main>
-            <Footer />
-        </>
-    )
+    }catch(error: any){
+      console.log(error.message)
+    } 
+  }
+
+  // Quando o produto for renderizado, a função listarCategoriaEmProduto acontece
+  useEffect(() => {
+    listarCategoriaEmProduto(); 
+  }, [])
+
+  
+  return (
+    <>
+      <SubHeader />
+      <main className={styles.main_produto}>
+        <section className={`${styles.section_flex} layout_guide`}>
+            <h1>Criar produto</h1>
+            <form className={styles.formulario_produto} onSubmit={Cadastrar}>
+              <div className={styles.campo_form}>
+                <label htmlFor="">Nome do produto</label>
+                <input type="text" 
+                value={nome} onChange={(e) => setNome(e.target.value)}/>
+              </div>
+              <div className={styles.campo_form}>
+                <label htmlFor="">Descrição</label>
+                <textarea value={descricao} onChange={(e) => setDescricao(e.target.value)}></textarea>
+              </div>
+              <div className={styles.campo_form}>
+                <label htmlFor="">Preço(R$)</label>
+                <input type="text" 
+                value={preco} onChange={(e) => setPreco(e.target.value)}/>
+              </div>
+              <div className={styles.campo_form}>
+                <label htmlFor="">Categoria</label>
+                <select multiple onChange={(e) => setCategoriasSelecionadas(
+                  Array.from(e.target.selectedOptions).map((option) => Number(option.value))
+                )}> 
+                  {categorias.map((item) => ( /* Mapeando a lista de categorias para que cada opção receba um item da lista */
+                    <option value={item.categoriaID} key={item.categoriaID}>{item.nome}</option>
+                  )
+                )}
+                </select>
+
+                <a href="">Criar categoria</a>
+              </div>
+              <div className={styles.campo_form}>
+                <label htmlFor="">Imagem do produto</label>
+                <input
+                  type="file"
+                  onChange={(e) => {
+                    if(e.target.files && e.target.files[0]) // Verificando se o files existe e se o primeiro índice está sendo preenchido
+                    setImagem(e.target.files[0]);
+                  }}
+                />
+              </div>
+              <button type="submit" id={styles.btn_salvar}>Salvar</button>
+            </form>
+        </section>
+      </main>
+      <Footer />
+    </>
+  )
 }
+
 export default Produto;
