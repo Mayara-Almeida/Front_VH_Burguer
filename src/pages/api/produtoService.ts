@@ -19,14 +19,14 @@ export async function cadastrarProduto(dados: Produto){
         }
 
         dados.categoriasId.forEach((id) => {
-            formData.append("categoriasIds", id.toString()); // Convertendo o id para string por conta do formData
+            formData.append("categoriaIds", id.toString()); // Convertendo o id para string por conta do formData
         })
 
         await api.post("Produto", formData);
 
-        console.log("Eba deu bom! 🍔😁")
+        // console.log("Eba deu bom! 🍔😁");
 
     }catch(error: any){
-        throw new Error(error.message);
+        throw new Error(error.response.data);
     }
 }

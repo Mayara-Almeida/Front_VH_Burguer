@@ -16,7 +16,7 @@ export async function login(email: string, senha: string){
 const token = response.data.token;
 
 //localStorage.setItem("tokenzinho", token);
-secureLocalStorage.setItem("tokenzinho", token);//secureLocalStorage traz o token criptografado
+secureLocalStorage.setItem("Token", token);//secureLocalStorage traz o token criptografado
 
         // o retorno do login é o token, utilizado para controle de permissões, vamos fazer o tratamento de cada um
         // await serve para esperar um tempo, pois nao sabemos o quanto a requisicao vai demorar

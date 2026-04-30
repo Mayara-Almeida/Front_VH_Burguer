@@ -4,9 +4,11 @@ import styles from "./produto.module.css"
 import { useEffect, useState } from "react";
 import { cadastrarCategoria, listarCategoria } from "../api/categoriaService";
 import { cadastrarProduto } from "../api/produtoService";
+import { erro, notificacao } from "@/utils/toast";
+import Toast from "@/components/toast/toast";
 
 interface Categoria{ // O nome de cada atributo tem que estar igual na api
-  categoriaID: number,
+  categoriaId: number,
   nome: string
 }
 
@@ -39,10 +41,11 @@ const Produto = () => {
           imagem,
           categoriasId: categoriasSelecionadas
         }
-        cadastrarProduto(dados);
+        await cadastrarProduto(dados);
+        notificacao("Produto cadastrado!");
 
     }catch(error: any){
-      console.log(error.message)
+      erro(error.message);
     } 
   }
 
@@ -54,6 +57,7 @@ const Produto = () => {
   
   return (
     <>
+    <Toast/>
       <SubHeader />
       <main className={styles.main_produto}>
         <section className={`${styles.section_flex} layout_guide`}>
@@ -76,10 +80,11 @@ const Produto = () => {
               <div className={styles.campo_form}>
                 <label htmlFor="">Categoria</label>
                 <select multiple onChange={(e) => setCategoriasSelecionadas(
-                  Array.from(e.target.selectedOptions).map((option) => Number(option.value))
-                )}> 
+                Array.from(e.target.selectedOptions).map((option) => Number(option.value))
+              )}>
                   {categorias.map((item) => ( /* Mapeando a lista de categorias para que cada opção receba um item da lista */
-                    <option value={item.categoriaID} key={item.categoriaID}>{item.nome}</option>
+                    <option value={item.categoriaId} key={item.categoriaId}>{item.nome}</option>
+                    
                   )
                 )}
                 </select>
